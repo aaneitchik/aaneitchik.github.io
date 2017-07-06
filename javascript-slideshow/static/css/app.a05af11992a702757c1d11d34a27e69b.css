@@ -269,6 +269,24 @@ html {
 #MyFirstSlideshow .eg-slideshow .eg-code-block {
     font-size: 0.7em;
 }
+#MyFirstSlideshow .eg-slideshow .dense-code-block {
+    font-size: 0.9em;
+}
+#MyFirstSlideshow .eg-slideshow .dense-code-block .box {
+      padding: 0.5rem 1rem !important;
+}
+#MyFirstSlideshow .eg-slideshow .dense-code-block pre {
+      margin: 0;
+}
+#MyFirstSlideshow .eg-slideshow .about-me {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#MyFirstSlideshow .eg-slideshow .center-image {
+    margin-top: 5em;
+}
 #MyFirstSlideshow .eg-slideshow h4 + .eg-code-block {
     margin-top: -1em;
 }
@@ -285,6 +303,20 @@ html {
 }
 #MyFirstSlideshow .eg-slideshow .eg-slide.centered .eg-slide-content {
     text-align: center;
+}
+#MyFirstSlideshow .eg-slideshow .eg-slide.wide .eg-slide-content {
+    width: 50em;
+}
+#MyFirstSlideshow .eg-slideshow .eg-slide.wide .subslide.wide {
+    width: 50em;
+}
+#MyFirstSlideshow .eg-slideshow .eg-slide.wide .subslide.auto-width {
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#MyFirstSlideshow .eg-slideshow .eg-slide.wide h3 {
+    margin: 0;
 }
 #MyFirstSlideshow .eg-slideshow .eg-slide h1, #MyFirstSlideshow .eg-slideshow .eg-slide h2, #MyFirstSlideshow .eg-slideshow .eg-slide h3, #MyFirstSlideshow .eg-slideshow .eg-slide h4, #MyFirstSlideshow .eg-slideshow .eg-slide h5, #MyFirstSlideshow .eg-slideshow .eg-slide p {
     font-weight: normal;
@@ -303,6 +335,7 @@ html {
     max-width: 90% !important;
     width: 30em;
     margin: 0 auto;
+    text-align: center;
 }
 #MyFirstSlideshow .eg-slideshow .eg-slide .subslide {
     max-width: 90% !important;
@@ -312,18 +345,45 @@ html {
 #MyFirstSlideshow .eg-slideshow .eg-slide .subslide h1:first-child, #MyFirstSlideshow .eg-slideshow .eg-slide .subslide h2:first-child, #MyFirstSlideshow .eg-slideshow .eg-slide .subslide h3:first-child, #MyFirstSlideshow .eg-slideshow .eg-slide .subslide h4:first-child, #MyFirstSlideshow .eg-slideshow .eg-slide .subslide h5:first-child {
       margin-top: 0;
 }
+#MyFirstSlideshow .eg-slideshow .code-comparison {
+    position: relative;
+    width: 80em;
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+#MyFirstSlideshow .eg-slideshow .code-comparison .subslide {
+      padding: 0.5em;
+      width: calc(50% - 1em);
+      max-width: none !important;
+}
+#MyFirstSlideshow .eg-slideshow .code-comparison .subslide:last-child:not(:first-child) {
+        right: 0;
+}
+#MyFirstSlideshow .eg-slideshow .code-comparison .subslide:first-child:not(:last-child) {
+        left: 0;
+}
+#MyFirstSlideshow table {
+  width: 80%;
+  margin: 0 auto;
+}
 #MyFirstSlideshow table td {
-  padding: 0 1rem;
-  text-align: center;
+    padding: 0 1rem;
+    text-align: center;
 }
 #MyFirstSlideshow table h4 {
-  margin: 1rem 0;
+    margin: 1rem 0;
 }
 #MyFirstSlideshow .row {
   display: -ms-flexbox;
   display: flex;
+  width: 80%;
+  margin: 0 auto;
 }
 #MyFirstSlideshow .row .col {
+    -ms-flex: 1;
+        flex: 1;
     padding: 1rem;
     text-align: center;
 }

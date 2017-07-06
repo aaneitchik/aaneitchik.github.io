@@ -56,25 +56,25 @@ module.exports = function normalizeComponent (
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Slideshow__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Slideshow__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Slideshow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Slideshow__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Slide__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Slide___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Slide__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_widgets_Modal__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_widgets_Modal__ = __webpack_require__(216);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_widgets_Modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_widgets_Modal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_widgets_CodeBlock__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_widgets_CodeBlock__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_widgets_CodeBlock___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_widgets_CodeBlock__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_widgets_CodeComment__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_widgets_CodeComment__ = __webpack_require__(215);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_widgets_CodeComment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_widgets_CodeComment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_widgets_Toggle__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_widgets_Toggle__ = __webpack_require__(218);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_widgets_Toggle___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_widgets_Toggle__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_AnimatedTransition__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_AnimatedTransition__ = __webpack_require__(211);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_AnimatedTransition___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_AnimatedTransition__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_widgets_RadioButton__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_widgets_RadioButton__ = __webpack_require__(217);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_widgets_RadioButton___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_widgets_RadioButton__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_ImageSlide__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_ImageSlide__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_ImageSlide___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_ImageSlide__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_widgets_TriggeredMessage__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_widgets_TriggeredMessage__ = __webpack_require__(219);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_widgets_TriggeredMessage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_widgets_TriggeredMessage__);
 
 
@@ -12299,7 +12299,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(224)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(232)))
 
 /***/ }),
 /* 7 */,
@@ -28824,7 +28824,15 @@ module.exports = function(hljs) {
 /* 220 */,
 /* 221 */,
 /* 222 */,
-/* 223 */
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */
 /***/ (function(module, exports) {
 
 /**
@@ -28857,7 +28865,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 224 */
+/* 232 */
 /***/ (function(module, exports) {
 
 var g;
@@ -28884,7 +28892,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 225 */
+/* 233 */
 /***/ (function(module, exports) {
 
 /*
@@ -28940,7 +28948,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 226 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -28959,7 +28967,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(223)
+var listToStyles = __webpack_require__(231)
 
 /*
 type StyleObject = {
