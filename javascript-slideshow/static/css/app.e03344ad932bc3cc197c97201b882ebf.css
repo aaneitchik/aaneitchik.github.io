@@ -305,10 +305,10 @@ html {
     text-align: center;
 }
 #MyFirstSlideshow .eg-slideshow .eg-slide.wide .eg-slide-content {
-    width: 50em;
+    width: 55em;
 }
 #MyFirstSlideshow .eg-slideshow .eg-slide.wide .subslide.wide {
-    width: 50em;
+    width: 55em;
 }
 #MyFirstSlideshow .eg-slideshow .eg-slide.wide .subslide.auto-width {
     width: auto;
@@ -332,7 +332,7 @@ html {
     color: #bbb;
 }
 #MyFirstSlideshow .eg-slideshow .eg-slide .eg-slide-content {
-    max-width: 90% !important;
+    max-width: 95% !important;
     width: 30em;
     margin: 0 auto;
     text-align: center;
@@ -348,7 +348,7 @@ html {
 #MyFirstSlideshow .eg-slideshow .code-comparison {
     position: relative;
     width: 80em;
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
     margin: 0 auto;
     text-align: center;
