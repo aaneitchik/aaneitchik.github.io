@@ -10,8 +10,11 @@ Links to aaneitchik.github.io:
 
 [snake-expert]
 
+[dog-expert]
+
 [//]: # 
 [digits-recognizer]: <https://aaneitchik.github.io/digits-recognizer/>
 [javascript-slideshow]: <https://aaneitchik.github.io/javascript-slideshow>
 [shape-drawer]: <https://aaneitchik.github.io/shape-drawer/>
 [snake-expert]: <https://aaneitchik.github.io/snake-expert/>
+[dog-expert]: <https://aaneitchik.github.io/dog-expert/>
