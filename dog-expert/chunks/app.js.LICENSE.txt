@@ -4,25 +4,15 @@ object-assign
 @license MIT
 */
 
-/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/postcss-loader/src??ref--7-2!./classification-result.css */
-
-/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/postcss-loader/src??ref--7-2!./dogs-viewer.css */
-
-/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/postcss-loader/src??ref--7-2!./image-upload.css */
-
-/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/postcss-loader/src??ref--7-2!./loader.css */
-
-/*! !../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src??ref--7-2!./app.css */
-
-/*! !../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src??ref--7-2!./index.css */
+/*! !worker-loader?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/ts-loader/index.js??ruleSet[1].rules[2].use[0]!./src/get-dog-breed.worker.ts */
 
 /*! ../../node_modules/css-loader/dist/runtime/api.js */
 
-/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+/*! ../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */
 
 /*! ../node_modules/css-loader/dist/runtime/api.js */
 
-/*! ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
+/*! ../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */
 
 /*! ./cjs/react-dom.production.min.js */
 
@@ -30,29 +20,7 @@ object-assign
 
 /*! ./cjs/scheduler.production.min.js */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-dom/index.js (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Cannot concat with ./src/get-dog-breed.worker.ts (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
-
-/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./src/get-dog-breed.worker.ts (referenced with cjs require) */
-
-/*! all exports used */
-
 /*! comlink */
-
-/*! exports provided: createEndpoint, expose, proxy, proxyMarker, releaseProxy, transfer, transferHandlers, windowEndpoint, wrap */
-
-/*! exports used: default */
-
-/*! exports used: getDogBreed, preloadModel */
-
-/*! no exports provided */
-
-/*! no static exports found */
 
 /*! object-assign */
 
@@ -60,23 +28,9 @@ object-assign
 
 /*! scheduler */
 
-/*! worker-loader?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/ts-loader??ref--6-0!./src/get-dog-breed.worker.ts */
-
-/*!*********************!*\
-  !*** ./src/app.css ***!
-  \*********************/
-
-/*!***********************!*\
-  !*** ./src/index.css ***!
-  \***********************/
-
-/*!***********************************!*\
-  !*** ./src/components/loader.css ***!
-  \***********************************/
-
-/*!***********************************!*\
-  !*** ./src/index.tsx + 5 modules ***!
-  \***********************************/
+/*!************************************!*\
+  !*** ./src/index.tsx + 11 modules ***!
+  \************************************/
 
 /*!*************************************!*\
   !*** ./node_modules/react/index.js ***!
@@ -86,10 +40,6 @@ object-assign
   !*** ./src/get-dog-breed.worker.ts ***!
   \*************************************/
 
-/*!****************************************!*\
-  !*** ./src/components/dogs-viewer.css ***!
-  \****************************************/
-
 /*!*****************************************!*\
   !*** ./node_modules/react-dom/index.js ***!
   \*****************************************/
@@ -98,17 +48,9 @@ object-assign
   !*** ./node_modules/scheduler/index.js ***!
   \*****************************************/
 
-/*!*****************************************!*\
-  !*** ./src/components/image-upload.css ***!
-  \*****************************************/
-
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
   \*********************************************/
-
-/*!**************************************************!*\
-  !*** ./src/components/classification-result.css ***!
-  \**************************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/comlink/dist/esm/comlink.mjs ***!
@@ -130,39 +72,43 @@ object-assign
   !*** ./node_modules/scheduler/cjs/scheduler.production.min.js ***!
   \****************************************************************/
 
+/*!************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/cssWithMappingToString.js ***!
+  \************************************************************************/
+
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
   \****************************************************************************/
 
-/*!*******************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--7-2!./src/app.css ***!
-  \*******************************************************************************************************/
+/*!*********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/app.css ***!
+  \*********************************************************************************************************************************/
 
-/*!*********************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--7-2!./src/index.css ***!
-  \*********************************************************************************************************/
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/index.css ***!
+  \***********************************************************************************************************************************/
 
-/*!*********************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--7-2!./src/components/loader.css ***!
-  \*********************************************************************************************************************/
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/components/loader.css ***!
+  \***********************************************************************************************************************************************/
 
-/*!**************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--7-2!./src/components/dogs-viewer.css ***!
-  \**************************************************************************************************************************/
+/*!****************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/components/dogs-viewer.css ***!
+  \****************************************************************************************************************************************************/
 
-/*!***************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--7-2!./src/components/image-upload.css ***!
-  \***************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/components/image-upload.css ***!
+  \*****************************************************************************************************************************************************/
 
-/*!************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--7-2!./src/components/classification-result.css ***!
-  \************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./src/components/classification-result.css ***!
+  \**************************************************************************************************************************************************************/
 
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/worker-loader/dist/cjs.js?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/ts-loader??ref--6-0!./src/get-dog-breed.worker.ts ***!
-  \********************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/worker-loader/dist/cjs.js?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/ts-loader/index.js??ruleSet[1].rules[2].use[0]!./src/get-dog-breed.worker.ts ***!
+  \***********************************************************************************************************************************************************************************************************/
 
-/** @license React v0.19.1
+/** @license React v0.20.1
  * scheduler.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -171,7 +117,7 @@ object-assign
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React v16.13.1
+/** @license React v17.0.1
  * react-dom.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -180,7 +126,7 @@ object-assign
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React v16.13.1
+/** @license React v17.0.1
  * react.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
