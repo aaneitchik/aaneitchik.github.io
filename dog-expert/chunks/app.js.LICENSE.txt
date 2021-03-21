@@ -60,7 +60,7 @@ object-assign
 
 /*! scheduler */
 
-/*! worker-loader?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/ts-loader??ref--6-0!./src/get-dog-breed.worker.ts */
+/*! worker-loader?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
 
 /*!*********************!*\
   !*** ./src/app.css ***!
@@ -158,9 +158,9 @@ object-assign
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--7-2!./src/components/classification-result.css ***!
   \************************************************************************************************************************************/
 
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/worker-loader/dist/cjs.js?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/ts-loader??ref--6-0!./src/get-dog-breed.worker.ts ***!
-  \********************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/worker-loader/dist/cjs.js?{}!./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts ***!
+  \*****************************************************************************************************************************************************************************/
 
 /** @license React v0.20.1
  * scheduler.production.min.js

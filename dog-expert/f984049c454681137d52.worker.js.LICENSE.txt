@@ -1,0 +1,3022 @@
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*! !webpack amd define */
+
+/*! !webpack amd options */
+
+/*! ../../engine */
+
+/*! ../../kernel_names */
+
+/*! ../../tensor_util_env */
+
+/*! ../../util */
+
+/*! ../backends/where_impl */
+
+/*! ../complex */
+
+/*! ../concat */
+
+/*! ../data/compiled_api */
+
+/*! ../engine */
+
+/*! ../environment */
+
+/*! ../gradients */
+
+/*! ../imag */
+
+/*! ../kernel_names */
+
+/*! ../mul */
+
+/*! ../operation */
+
+/*! ../ops/buffer */
+
+/*! ../ops/complex */
+
+/*! ../ops/tensor */
+
+/*! ../real */
+
+/*! ../reshape */
+
+/*! ../reverse */
+
+/*! ../scalar */
+
+/*! ../slice */
+
+/*! ../split */
+
+/*! ../tensor */
+
+/*! ../tensor_util */
+
+/*! ../tensor_util_env */
+
+/*! ../test_util */
+
+/*! ../util */
+
+/*! ../zeros */
+
+/*! ../zeros_like */
+
+/*! ./../../../../buffer/index.js */
+
+/*! ./../../../../process/browser.js */
+
+/*! ./../../../process/browser.js */
+
+/*! ./../../../timers-browserify/main.js */
+
+/*! ./../../../webpack/buildin/global.js */
+
+/*! ./../../webpack/buildin/module.js */
+
+/*! ./../process/browser.js */
+
+/*! ./../webpack/buildin/global.js */
+
+/*! ./abs */
+
+/*! ./add */
+
+/*! ./avg_pool */
+
+/*! ./axis_util */
+
+/*! ./batch_to_space_nd */
+
+/*! ./broadcast_to */
+
+/*! ./broadcast_util */
+
+/*! ./buffer */
+
+/*! ./cast */
+
+/*! ./clone */
+
+/*! ./complex */
+
+/*! ./conv2d */
+
+/*! ./conv2d_backprop_input */
+
+/*! ./conv_util */
+
+/*! ./custom_op/register */
+
+/*! ./depthwise_conv2d */
+
+/*! ./device_util */
+
+/*! ./div */
+
+/*! ./elu */
+
+/*! ./engine */
+
+/*! ./environment */
+
+/*! ./equal */
+
+/*! ./executors/utils */
+
+/*! ./exp */
+
+/*! ./fft */
+
+/*! ./floorDiv */
+
+/*! ./global_util */
+
+/*! ./ifft */
+
+/*! ./lazy_iterator */
+
+/*! ./leaky_relu */
+
+/*! ./lib/alea */
+
+/*! ./lib/tychei */
+
+/*! ./lib/xor128 */
+
+/*! ./lib/xor4096 */
+
+/*! ./lib/xorshift7 */
+
+/*! ./lib/xorwow */
+
+/*! ./log */
+
+/*! ./logical_and */
+
+/*! ./logical_not */
+
+/*! ./logical_or */
+
+/*! ./mat_mul */
+
+/*! ./max */
+
+/*! ./max_pool */
+
+/*! ./min */
+
+/*! ./mul */
+
+/*! ./neg */
+
+/*! ./op_list/arithmetic */
+
+/*! ./op_list/basic_math */
+
+/*! ./op_list/control */
+
+/*! ./op_list/convolution */
+
+/*! ./op_list/creation */
+
+/*! ./op_list/dynamic */
+
+/*! ./op_list/evaluation */
+
+/*! ./op_list/graph */
+
+/*! ./op_list/hash_table */
+
+/*! ./op_list/image */
+
+/*! ./op_list/logical */
+
+/*! ./op_list/matrices */
+
+/*! ./op_list/normalization */
+
+/*! ./op_list/reduction */
+
+/*! ./op_list/slice_join */
+
+/*! ./op_list/spectral */
+
+/*! ./op_list/transformation */
+
+/*! ./operation */
+
+/*! ./pow */
+
+/*! ./prelu */
+
+/*! ./rand_util */
+
+/*! ./relu */
+
+/*! ./relu6 */
+
+/*! ./reshape */
+
+/*! ./scalar */
+
+/*! ./scatter_nd_util */
+
+/*! ./seedrandom */
+
+/*! ./sigmoid */
+
+/*! ./softplus */
+
+/*! ./space_to_batch_nd */
+
+/*! ./sqrt */
+
+/*! ./square */
+
+/*! ./step */
+
+/*! ./string_iterator */
+
+/*! ./sub */
+
+/*! ./sum */
+
+/*! ./tensor */
+
+/*! ./tensor_ops_util */
+
+/*! ./tensor_util */
+
+/*! ./tensor_util_env */
+
+/*! ./types */
+
+/*! ./util */
+
+/*! ./util_base */
+
+/*! ./where */
+
+/*! ./zeros */
+
+/*! ./zeros_like */
+
+/*! @tensorflow/tfjs-core */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-converter/dist/operations/custom_op/register.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-converter/dist/operations/executors/utils.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js (<- Module uses injected variables (Buffer)) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/backends/backend.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/backends/non_max_suppression_impl.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/backends/where_impl.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/browser_util.js (<- Module uses injected variables (setImmediate)) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/device_util.js because of ./node_modules/@tensorflow/tfjs-core/dist/flags.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/engine.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/engine.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/environment.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/flags.js (<- Module uses injected variables (process)) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/global_util.js (<- Module uses injected variables (global, process)) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/globals.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/gradients.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/index.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/index.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js (<- Module uses injected variables (Buffer)) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/io/types.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/kernel_names.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/kernel_names.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/kernel_registry.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/kernel_registry.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/abs.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/abs.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/acos.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/acos.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/acosh.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/acosh.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/add.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/add.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/add_n.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/add_n.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/all.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/all.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/any.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/any.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/arg_max.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/arg_max.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/arg_min.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/arg_min.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/asin.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/asin.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/asinh.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/asinh.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/atan.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/atan.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/atan2.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/atan2.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/atanh.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/atanh.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/avg_pool.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/avg_pool.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/avg_pool_3d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/avg_pool_3d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/axis_util.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/axis_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/batch_to_space_nd.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/batch_to_space_nd.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/batchnorm.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/batchnorm.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/bincount.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/bincount.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/broadcast_to.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/broadcast_to.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/broadcast_util.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/broadcast_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/buffer.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cast.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cast.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ceil.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ceil.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/clip_by_value.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/clip_by_value.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/clone.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/complex.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/complex.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/concat.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/concat.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv1d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv1d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_backprop_filter.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_backprop_filter.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_backprop_input.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_backprop_input.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_transpose.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_transpose.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv3d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv3d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv3d_backprop_input.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv3d_backprop_input.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv_util.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/conv_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cos.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cos.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cosh.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cosh.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cumsum.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/cumsum.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/dense_bincount.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/dense_bincount.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depth_to_space.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depth_to_space.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d_native_backprop_filter.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d_native_backprop_filter.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d_native_backprop_input.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d_native_backprop_input.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/dilation2d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/dilation2d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/div.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/div.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/div_no_nan.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/div_no_nan.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/dot.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/dot.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/elu.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/elu.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/equal.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/equal.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/erf.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/erf.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/exp.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/exp.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/expand_dims.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/expand_dims.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/expm1.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/expm1.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/fill.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/fill.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/floor.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/floor.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/floorDiv.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/floorDiv.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/fused_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/gather.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/gather.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/gather_nd.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/gather_nd.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/greater.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/greater.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/greater_equal.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/greater_equal.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/imag.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/imag.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/image/resize_bilinear.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/image/resize_bilinear.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/image/resize_nearest_neighbor.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/image/resize_nearest_neighbor.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/is_finite.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/is_finite.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/is_inf.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/is_inf.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/is_nan.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/is_nan.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/leaky_relu.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/leaky_relu.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/less.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/less.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/less_equal.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/less_equal.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/linspace.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/linspace.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/local_response_normalization.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/local_response_normalization.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log1p.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log1p.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log_sigmoid.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log_sigmoid.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log_softmax.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log_softmax.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log_sum_exp.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/log_sum_exp.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_and.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_and.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_not.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_not.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_or.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_or.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_xor.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_xor.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/loss_ops_utils.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mat_mul.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mat_mul.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool_3d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool_3d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool_with_argmax.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool_with_argmax.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/maximum.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/maximum.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mean.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mean.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/min.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/min.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/minimum.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/minimum.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mirror_pad.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mirror_pad.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mod.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mod.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mul.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/mul.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/multinomial.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/multinomial.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/neg.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/neg.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/norm.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/norm.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/not_equal.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/not_equal.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/one_hot.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/one_hot.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ones.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ones.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ones_like.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ones_like.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/operation.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/operation.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ops.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/ops.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/pad.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/pad.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/pool.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/pool.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/pow.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/pow.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/prelu.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/prelu.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/print.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/prod.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/prod.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/rand_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/random_uniform.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/random_uniform.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/range.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/range.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/real.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/real.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/reciprocal.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/reciprocal.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/relu.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/relu.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/relu6.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/relu6.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/reshape.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/reshape.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/reverse.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/reverse.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/round.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/round.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/rsqrt.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/rsqrt.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/scalar.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/scalar.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/scatter_nd.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/scatter_nd.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/scatter_nd_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/selu.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/selu.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/selu_util.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/selu_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/separable_conv2d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/separable_conv2d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/setdiff1d_async.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/setdiff1d_async.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sigmoid.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sigmoid.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sign.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sign.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sin.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sin.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sinh.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sinh.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/slice.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/slice.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/slice_util.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/slice_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/softmax.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/softmax.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/softplus.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/softplus.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/space_to_batch_nd.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/space_to_batch_nd.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sparse_to_dense.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sparse_to_dense.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/fft.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/fft.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/ifft.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/ifft.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/irfft.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/irfft.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/rfft.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/rfft.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/split.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/split.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sqrt.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sqrt.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/square.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/square.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/squared_difference.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/squared_difference.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/squeeze.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/squeeze.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/stack.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/stack.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/step.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/step.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/strided_slice.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/strided_slice.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sub.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sub.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sum.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/sum.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tan.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tan.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tanh.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tanh.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor1d.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor1d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor3d.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor_ops_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tile.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/tile.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/topk.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/topk.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/transpose.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/transpose.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/truncated_normal.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/truncated_normal.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/unique.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/unique.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/unsorted_segment_sum.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/unsorted_segment_sum.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/unstack.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/unstack.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/where.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/where.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/where_async.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/where_async.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/zeros.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/zeros.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/zeros_like.js because of ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/ops/zeros_like.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/platforms/platform_node.js (<- Module uses injected variables (process)) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/tensor.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/tensor.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/tensor_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/tensor_util_env.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/tensor_util_env.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/test_util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/types.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/util.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/util_base.js because of ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-core/dist/util_base.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-data/dist/iterators/byte_chunk_iterator.js (<- Module uses injected variables (Buffer)) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-data/dist/iterators/lazy_iterator.js because of ./node_modules/@tensorflow/tfjs-data/dist/iterators/byte_chunk_iterator.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-data/dist/util/deep_map.js because of ./node_modules/@tensorflow/tfjs-data/dist/iterators/byte_chunk_iterator.js */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/@tensorflow/tfjs-data/dist/util/deep_map.js because of ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/seedrandom/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */
+
+/*! ModuleConcatenation bailout: Module uses injected variables (Buffer) */
+
+/*! ModuleConcatenation bailout: Module uses injected variables (global, process) */
+
+/*! ModuleConcatenation bailout: Module uses injected variables (process) */
+
+/*! ModuleConcatenation bailout: Module uses injected variables (setImmediate) */
+
+/*! all exports used */
+
+/*! base64-js */
+
+/*! crypto */
+
+/*! exports provided: Abs, Acos, Acosh, Add, AddN, All, Any, ArgMax, ArgMin, Asin, Asinh, Atan, Atanh, Atan2, AvgPool, AvgPoolGrad, AvgPool3D, AvgPool3DGrad, BatchMatMul, BatchToSpaceND, Bincount, BroadcastTo, Cast, Ceil, ClipByValue, Complex, ComplexAbs, Concat, Conv2D, Conv2DBackpropFilter, Conv2DBackpropInput, Conv3D, Conv3DBackpropFilterV2, Conv3DBackpropInputV2, Cos, Cosh, Cumsum, CropAndResize, DenseBincount, DepthToSpace, DepthwiseConv2dNative, DepthwiseConv2dNativeBackpropFilter, DepthwiseConv2dNativeBackpropInput, Diag, Dilation2D, Dilation2DBackpropInput, Dilation2DBackpropFilter, RealDiv, Elu, EluGrad, Erf, Equal, Exp, ExpandDims, Expm1, FFT, Fill, FlipLeftRight, Floor, FloorDiv, FusedBatchNorm, GatherV2, GatherNd, Greater, GreaterEqual, Identity, IFFT, Imag, IsFinite, IsInf, IsNan, LeakyRelu, Less, LessEqual, LinSpace, Log, Log1p, LogicalAnd, LogicalNot, LogicalOr, LogSoftmax, LRN, LRNGrad, Max, Maximum, MaxPool, MaxPoolGrad, MaxPool3D, MaxPool3DGrad, MaxPoolWithArgmax, Mean, Min, Minimum, MirrorPad, Mod, Multinomial, Multiply, Neg, NotEqual, NonMaxSuppressionV3, NonMaxSuppressionV4, NonMaxSuppressionV5, OnesLike, OneHot, Pack, PadV2, Pool, Pow, Prelu, Prod, Range, Real, Reciprocal, Relu, Reshape, ResizeNearestNeighbor, ResizeNearestNeighborGrad, ResizeBilinear, ResizeBilinearGrad, Relu6, Reverse, Round, Rsqrt, ScatterNd, Select, Selu, Slice, Sin, Sinh, Sign, Sigmoid, Softplus, Sqrt, Sum, SpaceToBatchND, SplitV, Softmax, SquaredDifference, Square, Sub, SparseToDense, StridedSlice, Tan, Tanh, Tile, TopK, Transform, Transpose, Unique, Unpack, UnsortedSegmentSum, ZerosLike, Step, FromPixels, RotateWithOffset, _FusedMatMul, FusedConv2D, FusedDepthwiseConv2D */
+
+/*! exports provided: AdadeltaOptimizer, AdagradOptimizer, AdamOptimizer, AdamaxOptimizer, MomentumOptimizer, Optimizer, RMSPropOptimizer, SGDOptimizer, Tensor, TensorBuffer, Variable, Rank, sumOutType, upcastType, abs, acos, acosh, add, addN, all, any, argMax, argMin, asin, asinh, atan, atan2, atanh, avgPool, avgPool3d, basicLSTMCell, batchToSpaceND, batchNorm, batchNorm2d, batchNorm3d, batchNorm4d, bincount, broadcastTo, buffer, cast, ceil, clipByValue, clone, complex, concat, concat1d, concat2d, concat3d, concat4d, conv1d, conv2d, conv2dTranspose, conv3d, conv3dTranspose, cos, cosh, cumsum, denseBincount, depthToSpace, depthwiseConv2d, diag, dilation2d, div, divNoNan, dot, elu, equal, erf, exp, expandDims, expm1, eye, fill, floor, floorDiv, gather, greater, greaterEqual, imag, isFinite, isInf, isNaN, leakyRelu, less, lessEqual, linspace, localResponseNormalization, log, log1p, logSigmoid, logSoftmax, logSumExp, logicalAnd, logicalNot, logicalOr, logicalXor, matMul, max, maxPool, maxPool3d, maxPoolWithArgmax, maximum, mean, min, minimum, mirrorPad, mod, moments, mul, multiRNNCell, multinomial, neg, notEqual, oneHot, ones, onesLike, outerProduct, pad, pad1d, pad2d, pad3d, pad4d, pool, pow, prelu, print, prod, rand, randomGamma, randomNormal, randomUniform, range, real, reciprocal, relu, relu6, reshape, reverse, reverse1d, reverse2d, reverse3d, reverse4d, round, rsqrt, scalar, selu, separableConv2d, setdiff1dAsync, sigmoid, sign, sin, sinh, slice, slice1d, slice2d, slice3d, slice4d, softmax, softplus, spaceToBatchND, fft, ifft, irfft, rfft, split, sqrt, square, squaredDifference, squeeze, stack, step, stridedSlice, sub, sum, tan, tanh, tensor, tensor1d, tensor2d, tensor3d, tensor4d, tensor5d, tensor6d, tile, topk, truncatedNormal, unique, unsortedSegmentSum, unstack, variable, where, whereAsync, zeros, zerosLike, booleanMaskAsync, transpose, norm, movingAverage, scatterND, sparseToDense, gatherND, dropout, enclosingPowerOfTwo, cosineWindow, inTopKAsync, op, OP_SCOPE_SUFFIX, image, linalg, losses, spectral, fused, signal, Reduction, train, enableProdMode, enableDebugMode, disableDeprecationWarnings, deprecationWarn, disposeVariables, engine, memory, profile, tidy, dispose, keep, time, setBackend, ready, getBackend, removeBackend, findBackend, findBackendFactory, registerBackend, backend, setPlatform, getKernel, getGradient, getKernelsForBackend, registerKernel, registerGradient, unregisterKernel, unregisterGradient, copyRegisteredKernels, customGrad, grad, grads, valueAndGrad, valueAndGrads, variableGrads, Environment, env, ENV, version_core, nextFrame, browser, io, math, serialization, test_util, util, backend_util, tensor_util, slice_util, gather_util, scatter_util, device_util, kernel_impls, KernelBackend, DataStorage, Abs, Acos, Acosh, Add, AddN, All, Any, ArgMax, ArgMin, Asin, Asinh, Atan, Atanh, Atan2, AvgPool, AvgPoolGrad, AvgPool3D, AvgPool3DGrad, BatchMatMul, BatchToSpaceND, Bincount, BroadcastTo, Cast, Ceil, ClipByValue, Complex, ComplexAbs, Concat, Conv2D, Conv2DBackpropFilter, Conv2DBackpropInput, Conv3D, Conv3DBackpropFilterV2, Conv3DBackpropInputV2, Cos, Cosh, Cumsum, CropAndResize, DenseBincount, DepthToSpace, DepthwiseConv2dNative, DepthwiseConv2dNativeBackpropFilter, DepthwiseConv2dNativeBackpropInput, Diag, Dilation2D, Dilation2DBackpropInput, Dilation2DBackpropFilter, RealDiv, Elu, EluGrad, Erf, Equal, Exp, ExpandDims, Expm1, FFT, Fill, FlipLeftRight, Floor, FloorDiv, FusedBatchNorm, GatherV2, GatherNd, Greater, GreaterEqual, Identity, IFFT, Imag, IsFinite, IsInf, IsNan, LeakyRelu, Less, LessEqual, LinSpace, Log, Log1p, LogicalAnd, LogicalNot, LogicalOr, LogSoftmax, LRN, LRNGrad, Max, Maximum, MaxPool, MaxPoolGrad, MaxPool3D, MaxPool3DGrad, MaxPoolWithArgmax, Mean, Min, Minimum, MirrorPad, Mod, Multinomial, Multiply, Neg, NotEqual, NonMaxSuppressionV3, NonMaxSuppressionV4, NonMaxSuppressionV5, OnesLike, OneHot, Pack, PadV2, Pool, Pow, Prelu, Prod, Range, Real, Reciprocal, Relu, Reshape, ResizeNearestNeighbor, ResizeNearestNeighborGrad, ResizeBilinear, ResizeBilinearGrad, Relu6, Reverse, Round, Rsqrt, ScatterNd, Select, Selu, Slice, Sin, Sinh, Sign, Sigmoid, Softplus, Sqrt, Sum, SpaceToBatchND, SplitV, Softmax, SquaredDifference, Square, Sub, SparseToDense, StridedSlice, Tan, Tanh, Tile, TopK, Transform, Transpose, Unique, Unpack, UnsortedSegmentSum, ZerosLike, Step, FromPixels, RotateWithOffset, _FusedMatMul, FusedConv2D, FusedDepthwiseConv2D */
+
+/*! exports provided: ByteChunkIterator */
+
+/*! exports provided: DTYPE_VALUE_SIZE_MAP */
+
+/*! exports provided: DataType, SaverDef */
+
+/*! exports provided: EPSILON_FLOAT32, EPSILON_FLOAT16, DataStorage, KernelBackend */
+
+/*! exports provided: Engine, getOrMakeEngine, ENGINE, add */
+
+/*! exports provided: Environment, getQueryParams, env, ENV, setEnvironmentGlobal */
+
+/*! exports provided: MPRandGauss, RandGamma, UniformRandom, jarqueBeraNormalityTest, expectArrayInMeanStdRange */
+
+/*! exports provided: OP_SCOPE_SUFFIX, op */
+
+/*! exports provided: OperationMapper, decodeBase64, parseStringParam, getStringParam, getBoolParam, getNumberParam, parseDtypeParam, getFuncParam, getDtypeParam, getDtypeArrayParam, parseTensorShapeParam, getTensorShapeParam, getNumericArrayParam, getStringArrayParam, getTensorShapeArrayParam, getBoolArrayParam */
+
+/*! exports provided: Rank, upcastType, sumOutType */
+
+/*! exports provided: Reduction */
+
+/*! exports provided: SELU_SCALEALPHA, SELU_SCALE */
+
+/*! exports provided: StringIterator */
+
+/*! exports provided: TEST_EPSILON_FLOAT16, expectArraysClose, testEpsilon, expectPromiseToFail, expectArraysEqual, expectNumbersClose, expectValuesInRange, expectArrayBuffersEqual, encodeStrings */
+
+/*! exports provided: TensorBuffer, setTensorTracker, setOpHandler, setDeprecationWarningFn, Tensor, getGlobalTensorClass, Variable */
+
+/*! exports provided: abs */
+
+/*! exports provided: abs, acos, acosh, add, addN, all, any, argMax, argMin, asin, asinh, atan, atan2, atanh, avgPool, avgPool3d, basicLSTMCell, batchToSpaceND, batchNorm, batchNorm2d, batchNorm3d, batchNorm4d, bincount, broadcastTo, buffer, cast, ceil, clipByValue, clone, complex, concat, concat1d, concat2d, concat3d, concat4d, conv1d, conv2d, conv2dTranspose, conv3d, conv3dTranspose, cos, cosh, cumsum, denseBincount, depthToSpace, depthwiseConv2d, diag, dilation2d, div, divNoNan, dot, elu, equal, erf, exp, expandDims, expm1, eye, fill, floor, floorDiv, gather, greater, greaterEqual, imag, isFinite, isInf, isNaN, leakyRelu, less, lessEqual, linspace, localResponseNormalization, log, log1p, logSigmoid, logSoftmax, logSumExp, logicalAnd, logicalNot, logicalOr, logicalXor, matMul, max, maxPool, maxPool3d, maxPoolWithArgmax, maximum, mean, min, minimum, mirrorPad, mod, moments, mul, multiRNNCell, multinomial, neg, notEqual, oneHot, ones, onesLike, outerProduct, pad, pad1d, pad2d, pad3d, pad4d, pool, pow, prelu, print, prod, rand, randomGamma, randomNormal, randomUniform, range, real, reciprocal, relu, relu6, reshape, reverse, reverse1d, reverse2d, reverse3d, reverse4d, round, rsqrt, scalar, selu, separableConv2d, setdiff1dAsync, sigmoid, sign, sin, sinh, slice, slice1d, slice2d, slice3d, slice4d, softmax, softplus, spaceToBatchND, fft, ifft, irfft, rfft, split, sqrt, square, squaredDifference, squeeze, stack, step, stridedSlice, sub, sum, tan, tanh, tensor, tensor1d, tensor2d, tensor3d, tensor4d, tensor5d, tensor6d, tile, topk, truncatedNormal, unique, unsortedSegmentSum, unstack, variable, where, whereAsync, zeros, zerosLike, booleanMaskAsync, transpose, norm, movingAverage, scatterND, sparseToDense, gatherND, dropout, enclosingPowerOfTwo, cosineWindow, inTopKAsync, op, OP_SCOPE_SUFFIX, image, linalg, losses, spectral, fused, signal */
+
+/*! exports provided: acos */
+
+/*! exports provided: acosh */
+
+/*! exports provided: add */
+
+/*! exports provided: addN */
+
+/*! exports provided: all */
+
+/*! exports provided: any */
+
+/*! exports provided: argMax */
+
+/*! exports provided: argMin */
+
+/*! exports provided: asin */
+
+/*! exports provided: asinh */
+
+/*! exports provided: assertParamsValid, maskToAxes, computeOutShape, stridesWithElidedDims, getNormalizedAxes, startIndicesWithElidedDims, stopIndicesWithElidedDims, stridesForAxis, startForAxis, stopForAxis, isSliceContinous, computeFlatOffset, parseSliceParams, sliceInfo */
+
+/*! exports provided: atan */
+
+/*! exports provided: atan2 */
+
+/*! exports provided: atanh */
+
+/*! exports provided: avgPool */
+
+/*! exports provided: avgPool3d */
+
+/*! exports provided: axesAreInnerMostDims, combineLocations, computeOutAndReduceShapes, expandShapeToKeepDim, assertAxesAreInnerMostDims, getAxesPermutation, getUndoAxesPermutation, getInnerMostAxes */
+
+/*! exports provided: batchNorm */
+
+/*! exports provided: batchToSpaceND */
+
+/*! exports provided: bincount */
+
+/*! exports provided: broadcastTo */
+
+/*! exports provided: buffer */
+
+/*! exports provided: cast */
+
+/*! exports provided: ceil */
+
+/*! exports provided: clipByValue */
+
+/*! exports provided: clone */
+
+/*! exports provided: complex */
+
+/*! exports provided: computeDilation2DInfo, computePool2DInfo, computePool3DInfo, computeConv2DInfo, computeConv3DInfo, computeDefaultPad, tupleValuesAreOne, eitherStridesOrDilationsAreOne, convertConv2DDataFormat */
+
+/*! exports provided: concat */
+
+/*! exports provided: conv1d */
+
+/*! exports provided: conv2DBackpropFilter */
+
+/*! exports provided: conv2DBackpropInput */
+
+/*! exports provided: conv2d */
+
+/*! exports provided: conv2dTranspose */
+
+/*! exports provided: conv3DBackpropInput */
+
+/*! exports provided: conv3d */
+
+/*! exports provided: cos */
+
+/*! exports provided: cosh */
+
+/*! exports provided: cumsum */
+
+/*! exports provided: customGrad, variableGrads, valueAndGrad, valueAndGrads, grad, grads */
+
+/*! exports provided: deepMap, deepZip, zipToList, deepMapAndAwaitAll, isIterable, canTensorify */
+
+/*! exports provided: denseBincount */
+
+/*! exports provided: depthToSpace */
+
+/*! exports provided: depthwiseConv2d */
+
+/*! exports provided: depthwiseConv2dNativeBackpropFilter */
+
+/*! exports provided: depthwiseConv2dNativeBackpropInput */
+
+/*! exports provided: dilation2d */
+
+/*! exports provided: div */
+
+/*! exports provided: divNoNan */
+
+/*! exports provided: dot */
+
+/*! exports provided: elu */
+
+/*! exports provided: enableProdMode, enableDebugMode, disableDeprecationWarnings, deprecationWarn, disposeVariables, engine, memory, profile, tidy, dispose, keep, time, setBackend, ready, getBackend, removeBackend, findBackend, findBackendFactory, registerBackend, backend, setPlatform */
+
+/*! exports provided: encodeWeights, decodeWeights, concatenateTypedArrays, stringByteLength, arrayBufferToBase64String, base64StringToArrayBuffer, concatenateArrayBuffers, basename, getModelArtifactsInfoForJSON, getFloat16Decoder */
+
+/*! exports provided: equal */
+
+/*! exports provided: erf */
+
+/*! exports provided: exp */
+
+/*! exports provided: expandDims */
+
+/*! exports provided: expm1 */
+
+/*! exports provided: fft */
+
+/*! exports provided: fill */
+
+/*! exports provided: floor */
+
+/*! exports provided: floorDiv */
+
+/*! exports provided: gather */
+
+/*! exports provided: gatherND */
+
+/*! exports provided: getBroadcastDims, getReductionAxes, assertAndGetBroadcastShape */
+
+/*! exports provided: getFusedDyActivation, getFusedBiasGradient, applyActivation, shouldFuse */
+
+/*! exports provided: getGlobalNamespace, getGlobal */
+
+/*! exports provided: getKernel, getGradient, getKernelsForBackend, registerKernel, registerGradient, unregisterKernel, unregisterGradient, copyRegisteredKernels */
+
+/*! exports provided: getNodeFetch, resetSystemFetch, setSystemFetch, getSystemFetch, PlatformNode */
+
+/*! exports provided: getParamValue, getTensor, getTensorsForCurrentContenxt, getNodeNameAndIndex, parseNodeName, split, getPadding, cloneTensor */
+
+/*! exports provided: greater */
+
+/*! exports provided: greaterEqual */
+
+/*! exports provided: ifft */
+
+/*! exports provided: imag */
+
+/*! exports provided: inferShape, convertToTensor, convertToTensorArray */
+
+/*! exports provided: irfft */
+
+/*! exports provided: isFinite */
+
+/*! exports provided: isInf */
+
+/*! exports provided: isMobile, isBrowser */
+
+/*! exports provided: isNaN */
+
+/*! exports provided: iteratorFromItems, iteratorFromIncrementing, iteratorFromFunction, iteratorFromConcatenated, iteratorFromConcatenatedFunction, iteratorFromZipped, LazyIterator, OneToManyIterator, ChainedIterator, ZipMismatchMode, PrefetchIterator, ShuffleIterator */
+
+/*! exports provided: json */
+
+/*! exports provided: leakyRelu */
+
+/*! exports provided: less */
+
+/*! exports provided: lessEqual */
+
+/*! exports provided: linspace */
+
+/*! exports provided: localResponseNormalization */
+
+/*! exports provided: log */
+
+/*! exports provided: log1p */
+
+/*! exports provided: logSigmoid */
+
+/*! exports provided: logSoftmax */
+
+/*! exports provided: logSumExp */
+
+/*! exports provided: logicalAnd */
+
+/*! exports provided: logicalNot */
+
+/*! exports provided: logicalOr */
+
+/*! exports provided: logicalXor */
+
+/*! exports provided: makeTensor */
+
+/*! exports provided: makeTypesMatch, assertTypesMatch, isTensorInList, getTensorsInContainer */
+
+/*! exports provided: matMul */
+
+/*! exports provided: max */
+
+/*! exports provided: maxPool */
+
+/*! exports provided: maxPool3d */
+
+/*! exports provided: maxPoolWithArgmax */
+
+/*! exports provided: maximum */
+
+/*! exports provided: mean */
+
+/*! exports provided: min */
+
+/*! exports provided: minimum */
+
+/*! exports provided: mirrorPad */
+
+/*! exports provided: mod */
+
+/*! exports provided: mul */
+
+/*! exports provided: multinomial */
+
+/*! exports provided: neg */
+
+/*! exports provided: nextFrame */
+
+/*! exports provided: nonMaxSuppressionV3Impl, nonMaxSuppressionV4Impl, nonMaxSuppressionV5Impl */
+
+/*! exports provided: norm */
+
+/*! exports provided: notEqual */
+
+/*! exports provided: oneHot */
+
+/*! exports provided: ones */
+
+/*! exports provided: onesLike */
+
+/*! exports provided: pad */
+
+/*! exports provided: pool */
+
+/*! exports provided: pow */
+
+/*! exports provided: preloadModel, getOffscreenCanvasFromImageUrl, getDogBreed */
+
+/*! exports provided: prelu */
+
+/*! exports provided: print */
+
+/*! exports provided: prod */
+
+/*! exports provided: randomUniform */
+
+/*! exports provided: range */
+
+/*! exports provided: real */
+
+/*! exports provided: reciprocal */
+
+/*! exports provided: registerOp, getRegisteredOp, deregisterOp */
+
+/*! exports provided: relu */
+
+/*! exports provided: relu6 */
+
+/*! exports provided: reshape */
+
+/*! exports provided: resizeBilinear */
+
+/*! exports provided: resizeNearestNeighbor */
+
+/*! exports provided: reverse */
+
+/*! exports provided: rfft */
+
+/*! exports provided: round */
+
+/*! exports provided: rsqrt */
+
+/*! exports provided: scalar */
+
+/*! exports provided: scatterND */
+
+/*! exports provided: selu */
+
+/*! exports provided: separableConv2d */
+
+/*! exports provided: setdiff1dAsync */
+
+/*! exports provided: shuffle, shuffleCombo, clamp, nearestLargerEven, sum, randUniform, distSquared, assert, assertShapesMatch, assertNonNull, flatten, sizeFromShape, isScalarShape, arraysEqual, isInt, tanh, sizeToSquarishShape, createShuffledIndices, rightPad, repeatedTry, inferFromImplicitShape, parseAxisParam, squeezeShape, getTypedArrayFromDType, getArrayFromDType, checkConversionForErrors, isValidDtype, hasEncodingLoss, isTypedArray, bytesPerElement, bytesFromStringArray, isString, isBoolean, isNumber, inferDtype, isFunction, nearestDivisor, computeStrides, toNestedArray, makeOnesTypedArray, makeZerosTypedArray, makeZerosNestedTypedArray, assertNonNegativeIntegerDimensions, locToIndex, indexToLoc, isPromise */
+
+/*! exports provided: shuffle, shuffleCombo, clamp, nearestLargerEven, sum, randUniform, distSquared, assert, assertShapesMatch, assertNonNull, flatten, sizeFromShape, isScalarShape, arraysEqual, isInt, tanh, sizeToSquarishShape, createShuffledIndices, rightPad, repeatedTry, inferFromImplicitShape, parseAxisParam, squeezeShape, getTypedArrayFromDType, getArrayFromDType, checkConversionForErrors, isValidDtype, hasEncodingLoss, isTypedArray, bytesPerElement, bytesFromStringArray, isString, isBoolean, isNumber, inferDtype, isFunction, nearestDivisor, computeStrides, toNestedArray, makeOnesTypedArray, makeZerosTypedArray, makeZerosNestedTypedArray, assertNonNegativeIntegerDimensions, locToIndex, indexToLoc, isPromise, createScalarValue, toTypedArray, now, fetch, encodeString, decodeString */
+
+/*! exports provided: sigmoid */
+
+/*! exports provided: sign */
+
+/*! exports provided: sin */
+
+/*! exports provided: sinh */
+
+/*! exports provided: slice */
+
+/*! exports provided: softmax */
+
+/*! exports provided: softplus */
+
+/*! exports provided: spaceToBatchND */
+
+/*! exports provided: sparseToDense */
+
+/*! exports provided: split */
+
+/*! exports provided: sqrt */
+
+/*! exports provided: square */
+
+/*! exports provided: squaredDifference */
+
+/*! exports provided: squeeze */
+
+/*! exports provided: stack */
+
+/*! exports provided: step */
+
+/*! exports provided: stridedSlice */
+
+/*! exports provided: sub */
+
+/*! exports provided: sum */
+
+/*! exports provided: tan */
+
+/*! exports provided: tanh */
+
+/*! exports provided: tensor */
+
+/*! exports provided: tensor1d */
+
+/*! exports provided: tensor3d */
+
+/*! exports provided: tile */
+
+/*! exports provided: topk */
+
+/*! exports provided: transpose */
+
+/*! exports provided: truncatedNormal */
+
+/*! exports provided: unique */
+
+/*! exports provided: unsortedSegmentSum */
+
+/*! exports provided: unstack */
+
+/*! exports provided: validateUpdateShape, validateInput, calculateShapes */
+
+/*! exports provided: where */
+
+/*! exports provided: whereAsync */
+
+/*! exports provided: whereImpl */
+
+/*! exports provided: zeros */
+
+/*! exports provided: zerosLike */
+
+/*! exports used: Abs, Acos, Acosh, Add, AddN, All, Any, ArgMax, ArgMin, Asin, Asinh, Atan, Atan2, Atanh, AvgPool, AvgPool3D, AvgPool3DGrad, AvgPoolGrad, BatchMatMul, BatchToSpaceND, Bincount, BroadcastTo, Cast, Ceil, ClipByValue, Complex, ComplexAbs, Concat, Conv2D, Conv2DBackpropFilter, Conv2DBackpropInput, Conv3D, Conv3DBackpropFilterV2, Conv3DBackpropInputV2, Cos, Cosh, CropAndResize, Cumsum, DenseBincount, DepthToSpace, DepthwiseConv2dNative, DepthwiseConv2dNativeBackpropFilter, DepthwiseConv2dNativeBackpropInput, Diag, Dilation2D, Dilation2DBackpropFilter, Dilation2DBackpropInput, Elu, EluGrad, Equal, Erf, Exp, ExpandDims, Expm1, FFT, Fill, FlipLeftRight, Floor, FloorDiv, FromPixels, FusedBatchNorm, FusedConv2D, FusedDepthwiseConv2D, GatherNd, GatherV2, Greater, GreaterEqual, IFFT, Identity, Imag, IsFinite, IsInf, IsNan, LRN, LRNGrad, LeakyRelu, Less, LessEqual, LinSpace, Log, Log1p, LogSoftmax, LogicalAnd, LogicalNot, LogicalOr, Max, MaxPool, MaxPool3D, MaxPool3DGrad, MaxPoolGrad, MaxPoolWithArgmax, Maximum, Mean, Min, Minimum, MirrorPad, Mod, Multinomial, Multiply, Neg, NonMaxSuppressionV3, NonMaxSuppressionV4, NonMaxSuppressionV5, NotEqual, OneHot, OnesLike, Pack, PadV2, Pool, Pow, Prelu, Prod, Range, Real, RealDiv, Reciprocal, Relu, Relu6, Reshape, ResizeBilinear, ResizeBilinearGrad, ResizeNearestNeighbor, ResizeNearestNeighborGrad, Reverse, RotateWithOffset, Round, Rsqrt, ScatterNd, Select, Selu, Sigmoid, Sign, Sin, Sinh, Slice, Softmax, Softplus, SpaceToBatchND, SparseToDense, SplitV, Sqrt, Square, SquaredDifference, Step, StridedSlice, Sub, Sum, Tan, Tanh, Tile, TopK, Transform, Transpose, Unique, Unpack, UnsortedSegmentSum, ZerosLike, _FusedMatMul */
+
+/*! exports used: ByteChunkIterator */
+
+/*! exports used: DTYPE_VALUE_SIZE_MAP */
+
+/*! exports used: DataStorage, KernelBackend */
+
+/*! exports used: DataType */
+
+/*! exports used: ENGINE, getOrMakeEngine */
+
+/*! exports used: ENV, Environment, env, setEnvironmentGlobal */
+
+/*! exports used: LazyIterator, OneToManyIterator, ZipMismatchMode, iteratorFromConcatenated, iteratorFromFunction, iteratorFromItems, iteratorFromZipped */
+
+/*! exports used: MPRandGauss, RandGamma, UniformRandom */
+
+/*! exports used: OP_SCOPE_SUFFIX, abs, acos, acosh, add, addN, all, any, argMax, argMin, asin, asinh, atan, atan2, atanh, avgPool, avgPool3d, basicLSTMCell, batchNorm, batchNorm2d, batchNorm3d, batchNorm4d, batchToSpaceND, bincount, booleanMaskAsync, broadcastTo, buffer, cast, ceil, clipByValue, clone, complex, concat, concat1d, concat2d, concat3d, concat4d, conv1d, conv2d, conv2dTranspose, conv3d, conv3dTranspose, cos, cosh, cosineWindow, cumsum, denseBincount, depthToSpace, depthwiseConv2d, diag, dilation2d, div, divNoNan, dot, dropout, elu, enclosingPowerOfTwo, equal, erf, exp, expandDims, expm1, eye, fft, fill, floor, floorDiv, fused, gather, gatherND, greater, greaterEqual, ifft, imag, image, inTopKAsync, irfft, isFinite, isInf, isNaN, leakyRelu, less, lessEqual, linalg, linspace, localResponseNormalization, log, log1p, logSigmoid, logSoftmax, logSumExp, logicalAnd, logicalNot, logicalOr, logicalXor, losses, matMul, max, maxPool, maxPool3d, maxPoolWithArgmax, maximum, mean, min, minimum, mirrorPad, mod, moments, movingAverage, mul, multiRNNCell, multinomial, neg, norm, notEqual, oneHot, ones, onesLike, op, outerProduct, pad, pad1d, pad2d, pad3d, pad4d, pool, pow, prelu, print, prod, rand, randomGamma, randomNormal, randomUniform, range, real, reciprocal, relu, relu6, reshape, reverse, reverse1d, reverse2d, reverse3d, reverse4d, rfft, round, rsqrt, scalar, scatterND, selu, separableConv2d, setdiff1dAsync, sigmoid, sign, signal, sin, sinh, slice, slice1d, slice2d, slice3d, slice4d, softmax, softplus, spaceToBatchND, sparseToDense, spectral, split, sqrt, square, squaredDifference, squeeze, stack, step, stridedSlice, sub, sum, tan, tanh, tensor, tensor1d, tensor2d, tensor3d, tensor4d, tensor5d, tensor6d, tile, topk, transpose, truncatedNormal, unique, unsortedSegmentSum, unstack, variable, where, whereAsync, zeros, zerosLike */
+
+/*! exports used: OP_SCOPE_SUFFIX, op */
+
+/*! exports used: OperationMapper, getBoolArrayParam, getBoolParam, getDtypeArrayParam, getDtypeParam, getNumberParam, getNumericArrayParam, getStringArrayParam, getStringParam, getTensorShapeArrayParam, getTensorShapeParam */
+
+/*! exports used: Rank, sumOutType, upcastType */
+
+/*! exports used: Reduction */
+
+/*! exports used: SELU_SCALE, SELU_SCALEALPHA */
+
+/*! exports used: StringIterator */
+
+/*! exports used: Tensor, TensorBuffer, Variable, getGlobalTensorClass, setDeprecationWarningFn, setOpHandler, setTensorTracker */
+
+/*! exports used: abs */
+
+/*! exports used: acos */
+
+/*! exports used: acosh */
+
+/*! exports used: add */
+
+/*! exports used: addN */
+
+/*! exports used: alea */
+
+/*! exports used: all */
+
+/*! exports used: any */
+
+/*! exports used: applyActivation, getFusedBiasGradient, getFusedDyActivation, shouldFuse */
+
+/*! exports used: argMax */
+
+/*! exports used: argMin */
+
+/*! exports used: arrayBufferToBase64String, base64StringToArrayBuffer, basename, concatenateArrayBuffers, decodeWeights, encodeWeights, getModelArtifactsInfoForJSON */
+
+/*! exports used: arraysEqual, assert, assertNonNegativeIntegerDimensions, assertNonNull, assertShapesMatch, bytesFromStringArray, bytesPerElement, checkConversionForErrors, clamp, computeStrides, createShuffledIndices, distSquared, flatten, getArrayFromDType, getTypedArrayFromDType, hasEncodingLoss, indexToLoc, inferDtype, inferFromImplicitShape, isBoolean, isFunction, isInt, isNumber, isPromise, isScalarShape, isString, isTypedArray, isValidDtype, locToIndex, makeOnesTypedArray, makeZerosNestedTypedArray, makeZerosTypedArray, nearestDivisor, nearestLargerEven, parseAxisParam, randUniform, repeatedTry, rightPad, shuffle, shuffleCombo, sizeFromShape, sizeToSquarishShape, squeezeShape, sum, tanh, toNestedArray */
+
+/*! exports used: asin */
+
+/*! exports used: asinh */
+
+/*! exports used: assertAndGetBroadcastShape, getBroadcastDims, getReductionAxes */
+
+/*! exports used: assertAxesAreInnerMostDims, axesAreInnerMostDims, combineLocations, computeOutAndReduceShapes, expandShapeToKeepDim, getAxesPermutation, getInnerMostAxes, getUndoAxesPermutation */
+
+/*! exports used: atan */
+
+/*! exports used: atan2 */
+
+/*! exports used: atanh */
+
+/*! exports used: avgPool */
+
+/*! exports used: avgPool3d */
+
+/*! exports used: backend, deprecationWarn, disableDeprecationWarnings, dispose, disposeVariables, enableDebugMode, enableProdMode, engine, findBackend, findBackendFactory, getBackend, keep, memory, profile, ready, registerBackend, removeBackend, setBackend, setPlatform, tidy, time */
+
+/*! exports used: batchNorm */
+
+/*! exports used: batchToSpaceND */
+
+/*! exports used: bincount */
+
+/*! exports used: broadcastTo */
+
+/*! exports used: buffer */
+
+/*! exports used: canTensorify, deepMap, deepMapAndAwaitAll, deepZip, isIterable, zipToList */
+
+/*! exports used: cast */
+
+/*! exports used: ceil */
+
+/*! exports used: clipByValue */
+
+/*! exports used: clone */
+
+/*! exports used: cloneTensor, getNodeNameAndIndex, getPadding, getParamValue, getTensor, getTensorsForCurrentContenxt, parseNodeName */
+
+/*! exports used: complex */
+
+/*! exports used: computeConv2DInfo, computeConv3DInfo, computeDefaultPad, computeDilation2DInfo, computePool2DInfo, computePool3DInfo, convertConv2DDataFormat, eitherStridesOrDilationsAreOne, tupleValuesAreOne */
+
+/*! exports used: concat */
+
+/*! exports used: conv1d */
+
+/*! exports used: conv2DBackpropFilter */
+
+/*! exports used: conv2DBackpropInput */
+
+/*! exports used: conv2d */
+
+/*! exports used: conv2dTranspose */
+
+/*! exports used: conv3DBackpropInput */
+
+/*! exports used: conv3d */
+
+/*! exports used: convertToTensor, convertToTensorArray, inferShape */
+
+/*! exports used: copyRegisteredKernels, getGradient, getKernel, getKernelsForBackend, registerGradient, registerKernel, unregisterGradient, unregisterKernel */
+
+/*! exports used: cos */
+
+/*! exports used: cosh */
+
+/*! exports used: cumsum */
+
+/*! exports used: customGrad, grad, grads, valueAndGrad, valueAndGrads, variableGrads */
+
+/*! exports used: denseBincount */
+
+/*! exports used: depthToSpace */
+
+/*! exports used: depthwiseConv2d */
+
+/*! exports used: depthwiseConv2dNativeBackpropFilter */
+
+/*! exports used: depthwiseConv2dNativeBackpropInput */
+
+/*! exports used: dilation2d */
+
+/*! exports used: div */
+
+/*! exports used: divNoNan */
+
+/*! exports used: dot */
+
+/*! exports used: elu */
+
+/*! exports used: equal */
+
+/*! exports used: erf */
+
+/*! exports used: exp */
+
+/*! exports used: expandDims */
+
+/*! exports used: expm1 */
+
+/*! exports used: fft */
+
+/*! exports used: fill */
+
+/*! exports used: floor */
+
+/*! exports used: floorDiv */
+
+/*! exports used: gather */
+
+/*! exports used: gatherND */
+
+/*! exports used: getGlobal, getGlobalNamespace */
+
+/*! exports used: getRegisteredOp */
+
+/*! exports used: greater */
+
+/*! exports used: greaterEqual */
+
+/*! exports used: ifft */
+
+/*! exports used: imag */
+
+/*! exports used: irfft */
+
+/*! exports used: isFinite */
+
+/*! exports used: isInf */
+
+/*! exports used: isNaN */
+
+/*! exports used: leakyRelu */
+
+/*! exports used: less */
+
+/*! exports used: lessEqual */
+
+/*! exports used: linspace */
+
+/*! exports used: localResponseNormalization */
+
+/*! exports used: log */
+
+/*! exports used: log1p */
+
+/*! exports used: logSigmoid */
+
+/*! exports used: logSoftmax */
+
+/*! exports used: logSumExp */
+
+/*! exports used: logicalAnd */
+
+/*! exports used: logicalNot */
+
+/*! exports used: logicalOr */
+
+/*! exports used: logicalXor */
+
+/*! exports used: makeTensor */
+
+/*! exports used: matMul */
+
+/*! exports used: max */
+
+/*! exports used: maxPool */
+
+/*! exports used: maxPool3d */
+
+/*! exports used: maxPoolWithArgmax */
+
+/*! exports used: maximum */
+
+/*! exports used: mean */
+
+/*! exports used: min */
+
+/*! exports used: minimum */
+
+/*! exports used: mirrorPad */
+
+/*! exports used: mod */
+
+/*! exports used: mul */
+
+/*! exports used: multinomial */
+
+/*! exports used: neg */
+
+/*! exports used: nextFrame */
+
+/*! exports used: nonMaxSuppressionV3Impl, nonMaxSuppressionV4Impl, nonMaxSuppressionV5Impl */
+
+/*! exports used: norm */
+
+/*! exports used: notEqual */
+
+/*! exports used: oneHot */
+
+/*! exports used: ones */
+
+/*! exports used: onesLike */
+
+/*! exports used: pad */
+
+/*! exports used: pool */
+
+/*! exports used: pow */
+
+/*! exports used: prelu */
+
+/*! exports used: print */
+
+/*! exports used: prod */
+
+/*! exports used: randomUniform */
+
+/*! exports used: range */
+
+/*! exports used: real */
+
+/*! exports used: reciprocal */
+
+/*! exports used: relu */
+
+/*! exports used: relu6 */
+
+/*! exports used: reshape */
+
+/*! exports used: resizeBilinear */
+
+/*! exports used: resizeNearestNeighbor */
+
+/*! exports used: reverse */
+
+/*! exports used: rfft */
+
+/*! exports used: round */
+
+/*! exports used: rsqrt */
+
+/*! exports used: scalar */
+
+/*! exports used: scatterND */
+
+/*! exports used: selu */
+
+/*! exports used: separableConv2d */
+
+/*! exports used: setdiff1dAsync */
+
+/*! exports used: sigmoid */
+
+/*! exports used: sign */
+
+/*! exports used: sin */
+
+/*! exports used: sinh */
+
+/*! exports used: slice */
+
+/*! exports used: softmax */
+
+/*! exports used: softplus */
+
+/*! exports used: spaceToBatchND */
+
+/*! exports used: sparseToDense */
+
+/*! exports used: split */
+
+/*! exports used: sqrt */
+
+/*! exports used: square */
+
+/*! exports used: squaredDifference */
+
+/*! exports used: squeeze */
+
+/*! exports used: stack */
+
+/*! exports used: step */
+
+/*! exports used: stridedSlice */
+
+/*! exports used: sub */
+
+/*! exports used: sum */
+
+/*! exports used: tan */
+
+/*! exports used: tanh */
+
+/*! exports used: tensor */
+
+/*! exports used: tensor1d */
+
+/*! exports used: tensor3d */
+
+/*! exports used: tile */
+
+/*! exports used: topk */
+
+/*! exports used: transpose */
+
+/*! exports used: truncatedNormal */
+
+/*! exports used: unique */
+
+/*! exports used: unsortedSegmentSum */
+
+/*! exports used: unstack */
+
+/*! exports used: where */
+
+/*! exports used: whereAsync */
+
+/*! exports used: whereImpl */
+
+/*! exports used: zeros */
+
+/*! exports used: zerosLike */
+
+/*! ieee754 */
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/*! isarray */
+
+/*! no exports provided */
+
+/*! no static exports found */
+
+/*! node-fetch */
+
+/*! seedrandom */
+
+/*! setimmediate */
+
+/*! string_decoder */
+
+/*! util */
+
+/*!********************!*\
+  !*** fs (ignored) ***!
+  \********************/
+
+/*!**********************!*\
+  !*** util (ignored) ***!
+  \**********************/
+
+/*!************************!*\
+  !*** crypto (ignored) ***!
+  \************************/
+
+/*!****************************!*\
+  !*** node-fetch (ignored) ***!
+  \****************************/
+
+/*!********************************!*\
+  !*** string_decoder (ignored) ***!
+  \********************************/
+
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/buffer/index.js ***!
+  \**************************************/
+
+/*!***************************************!*\
+  !*** (webpack)/buildin/amd-define.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/ieee754/index.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/isarray/index.js ***!
+  \***************************************/
+
+/*!****************************************!*\
+  !*** (webpack)/buildin/amd-options.js ***!
+  \****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/base64-js/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/seedrandom/index.js ***!
+  \******************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/seedrandom/lib/alea.js ***!
+  \*********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/seedrandom/lib/tychei.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/seedrandom/lib/xor128.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/seedrandom/lib/xorwow.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/seedrandom/seedrandom.js ***!
+  \***********************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/seedrandom/lib/xor4096.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/timers-browserify/main.js ***!
+  \************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/seedrandom/lib/xorshift7.js ***!
+  \**************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/setimmediate/setImmediate.js ***!
+  \***************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/util.js ***!
+  \*********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/flags.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/types.js ***!
+  \**********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/globals.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/abs.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/add.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/all.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/any.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/cos.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/div.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/dot.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/elu.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/erf.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/exp.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/log.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/max.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/min.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/mod.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/mul.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/neg.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/pad.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/pow.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sin.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sub.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sum.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/tan.js ***!
+  \************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/io/types.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/acos.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/asin.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/atan.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/cast.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/ceil.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/cosh.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/fill.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/imag.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/less.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/mean.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/norm.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/ones.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/pool.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/prod.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/real.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/relu.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/selu.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sign.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sinh.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sqrt.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/step.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/tanh.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/tile.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/topk.js ***!
+  \*************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/gradients.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/acosh.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/add_n.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/asinh.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/atan2.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/atanh.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/clone.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/equal.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/expm1.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/floor.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/log1p.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/prelu.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/print.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/range.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/relu6.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/round.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/rsqrt.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/slice.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/split.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/stack.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/where.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/zeros.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/test_util.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/util_base.js ***!
+  \**************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/buffer.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/concat.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv1d.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv3d.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/cumsum.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/gather.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/is_inf.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/is_nan.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/scalar.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/square.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/unique.js ***!
+  \***************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/device_util.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/environment.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/global_util.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/io/io_utils.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/arg_max.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/arg_min.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/complex.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/greater.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/mat_mul.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/maximum.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/minimum.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/one_hot.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/reshape.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/reverse.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sigmoid.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/softmax.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/squeeze.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/unstack.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/tensor_util.js ***!
+  \****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/browser_util.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/kernel_names.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/avg_pool.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/bincount.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/floorDiv.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/linspace.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/softplus.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor1d.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor3d.js ***!
+  \*****************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/axis_util.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv_util.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/gather_nd.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/is_finite.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/not_equal.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/ones_like.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/operation.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/rand_util.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/selu_util.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/transpose.js ***!
+  \******************************************************************/
+
+/*!******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-data/dist/util/deep_map.js ***!
+  \******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/dilation2d.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/div_no_nan.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/fused_util.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/leaky_relu.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/less_equal.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_or.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/mirror_pad.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/reciprocal.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/scatter_nd.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/slice_util.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/zeros_like.js ***!
+  \*******************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/kernel_registry.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/avg_pool_3d.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/expand_dims.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/log_sigmoid.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/log_softmax.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/log_sum_exp.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_and.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_not.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/logical_xor.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool_3d.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/multinomial.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/where_async.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/tensor_util_env.js ***!
+  \********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/backends/backend.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/broadcast_to.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/fft.js ***!
+  \*********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/clip_by_value.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/greater_equal.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/ifft.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/rfft.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/strided_slice.js ***!
+  \**********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/engine.js + 2 modules ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/index.js + 40 modules ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/broadcast_util.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/dense_bincount.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/depth_to_space.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/loss_ops_utils.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/random_uniform.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/spectral/irfft.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/tensor.js + 1 modules ***!
+  \***********************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/backends/where_impl.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/scatter_nd_util.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/setdiff1d_async.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/tensor_ops_util.js ***!
+  \************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_transpose.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/ops.js + 71 modules ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/separable_conv2d.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/truncated_normal.js ***!
+  \*************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/batch_to_space_nd.js ***!
+  \**************************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/space_to_batch_nd.js ***!
+  \**************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/data/compiled_api.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/squared_difference.js ***!
+  \***************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/platforms/platform_node.js ***!
+  \****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/max_pool_with_argmax.js ***!
+  \*****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/unsorted_segment_sum.js ***!
+  \*****************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/batchnorm.js + 1 modules ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_backprop_input.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv3d_backprop_input.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/image/resize_bilinear.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-data/dist/iterators/string_iterator.js ***!
+  \******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/conv2d_backprop_filter.js ***!
+  \*******************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/graph.js ***!
+  \**********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/image.js ***!
+  \**********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-data/dist/iterators/byte_chunk_iterator.js ***!
+  \**********************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/executors/utils.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/control.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/dynamic.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/logical.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/sparse_to_dense.js + 1 modules ***!
+  \************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/creation.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/matrices.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/spectral.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/operation_mapper.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/local_response_normalization.js ***!
+  \*************************************************************************************/
+
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/reduction.js ***!
+  \**************************************************************************************/
+
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/image/resize_nearest_neighbor.js ***!
+  \**************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/custom_op/register.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/arithmetic.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/basic_math.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/evaluation.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/hash_table.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/slice_join.js ***!
+  \***************************************************************************************/
+
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/convolution.js ***!
+  \****************************************************************************************/
+
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-data/dist/iterators/lazy_iterator.js + 3 modules ***!
+  \****************************************************************************************/
+
+/*!******************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/normalization.js ***!
+  \******************************************************************************************/
+
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-converter/dist/operations/op_list/transformation.js ***!
+  \*******************************************************************************************/
+
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d_native_backprop_input.js ***!
+  \***********************************************************************************************/
+
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/ops/depthwise_conv2d_native_backprop_filter.js ***!
+  \************************************************************************************************/
+
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/@tensorflow/tfjs-core/dist/backends/non_max_suppression_impl.js + 1 modules ***!
+  \**************************************************************************************************/
+
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/comlink-loader/dist/comlink-worker-loader.js!./node_modules/babel-loader/lib!./src/get-dog-breed.worker.ts + 794 modules ***!
+  \***********************************************************************************************************************************************/
+
+/**
+    * @license
+    * Copyright 2021 Google LLC. All Rights Reserved.
+    * Licensed under the Apache License, Version 2.0 (the "License");
+    * you may not use this file except in compliance with the License.
+    * You may obtain a copy of the License at
+    *
+    * http://www.apache.org/licenses/LICENSE-2.0
+    *
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
+    * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
+    * =============================================================================
+    */
+
+/**
+ * @license
+ * Copyright 2017 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2018 Google LLC
+ *
+ * Use of this source code is governed by an MIT-style
+ * license that can be found in the LICENSE file or at
+ * https://opensource.org/licenses/MIT.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2018 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2018 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2019 Google LLC
+ *
+ * Use of this source code is governed by an MIT-style
+ * license that can be found in the LICENSE file or at
+ * https://opensource.org/licenses/MIT.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2019 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2020 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2020 Google LLC
+ *
+ * Use of this source code is governed by an MIT-style
+ * license that can be found in the LICENSE file or at
+ * https://opensource.org/licenses/MIT.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2020 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2020 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the License);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+/**
+ * @license
+ * Copyright 2021 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+/** @license See the LICENSE file. */
